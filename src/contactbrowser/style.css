@@ -13,7 +13,30 @@
    -fx-background-color:linear-gradient(#a3cebd 10%, #f7e8c9 65%, #e5e1e0 100%);
 }
 
-#txt 
+#lable
  {
      -fx-text-fill:#3e6355;
+     -fx-font-weight:bold;
+     /*-fx-font-style:oblique;*/
+     -fx-font-size:15;
  }
+ 
+ 
+#button
+{
+    -fx-background-color:#80bfa6;
+    -fx-text-fill: snow;
+    -fx-font-weight:bold;
+    
+}
+
+#txtfield
+{
+    -fx-background-color: cornsilk;
+    -fx-text-fill:  #3e6355;
+    -fx-font-weight:bold;
+    
+    
+  
+    
+}

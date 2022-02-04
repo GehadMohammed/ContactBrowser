@@ -80,6 +80,8 @@ public class ContactBrowser extends Application {
                     cp.setId(dbms.insert_record(cp));
                     table_data.add(cp);
                     raiseAlert("added successfully");
+                    index=table_data.size()-1;
+                    fill_data(index);
                     
                 }
             }
@@ -89,7 +91,12 @@ public class ContactBrowser extends Application {
         btnlist.get(1).setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                
+                if(labelXtextfiled.get(0).textfield.getText().equals(""))
+                {
+                    raiseAlert("please select record!");
+                }
+                else
+                {
                 table_data.get(index).setId(Integer.valueOf(labelXtextfiled.get(0).textfield.getText()));
                 table_data.get(index).setName(labelXtextfiled.get(1).textfield.getText());
                 table_data.get(index).setNickName(labelXtextfiled.get(2).textfield.getText());
@@ -113,6 +120,7 @@ public class ContactBrowser extends Application {
                  {
                      raiseAlert("update record successfully");
                  }
+                      }
             }
         });
         
@@ -123,6 +131,17 @@ public class ContactBrowser extends Application {
                dbms.delete_record(table_data.get(index).getId());
                table_data.remove(index);
                 raiseAlert("delete record successfully");
+                if(index<table_data.size()-1)
+                {
+                    fill_data(index); 
+                }
+                else
+                {
+                    fill_data(--index);
+                
+                }       
+        
+                
                
                
             }
@@ -190,7 +209,7 @@ public class ContactBrowser extends Application {
        
         grid.setAlignment(Pos.CENTER);
         grid.setVgap(15);
-        grid.setHgap(20);
+        grid.setHgap(30);
         
         HBox hbBtn = new HBox(btnlist.get(0),btnlist.get(1),btnlist.get(2),btnlist.get(3),btnlist.get(4),btnlist.get(5),btnlist.get(6),btnlist.get(7));
         hbBtn.setAlignment(Pos.BOTTOM_CENTER);
@@ -231,7 +250,9 @@ public class ContactBrowser extends Application {
         {        
             ltlist.add(new labelXtextfiled());
             ltlist.get(index).lable.setText(names[index]); 
-            ltlist.get(index).lable.setId("txt");
+            ltlist.get(index).lable.setId("lable");
+             ltlist.get(index).textfield.setId("txtfield");
+            
         }
         
    return ltlist;
@@ -244,7 +265,8 @@ public class ContactBrowser extends Application {
         for (int index=0;index<size;index++)
         {        
             btnlist.add(new Button());
-            btnlist.get(index).setText(names[index]);           
+            btnlist.get(index).setText(names[index]);
+            btnlist.get(index).setId("button");
         }
         
    return btnlist;
