@@ -1,0 +1,19 @@
+
+#title
+{    
+  -fx-fill:#3e6355;
+  -fx-font-weight:bold;
+  -fx-font-size:34;
+  -fx-font-family:Tahoma;
+  
+}
+
+#grid
+{
+   -fx-background-color:linear-gradient(#a3cebd 10%, #f7e8c9 65%, #e5e1e0 100%);
+}
+
+#txt 
+ {
+     -fx-text-fill:#3e6355;
+ }
