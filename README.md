@@ -32,7 +32,7 @@ To deploy this project run
 ```
 
 
-## Screenshots
+## Project Demo
 https://user-images.githubusercontent.com/74653969/152620453-ddb7c359-7759-4fd3-ad19-485161ee27a8.mp4
 
 
