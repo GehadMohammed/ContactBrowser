@@ -20,9 +20,11 @@ public class ContactDAO {
     Statement stmt;
     Connection con;  
     PreparedStatement pst;
-    
+    String username,passwd;
 
     public ContactDAO() {
+        username = "amr";
+        passwd = "aA*00001122";
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
         } catch (ClassNotFoundException ex) {
@@ -104,7 +106,7 @@ public class ContactDAO {
     public void connect_DB(){
         try {
             con=DriverManager.getConnection
-                    ("jdbc:mysql://localhost:3306/addressbook","gehad","2801");
+                    ("jdbc:mysql://localhost:3306/addressbook",username,passwd);
             stmt=con.createStatement();
         } catch (SQLException ex) {
             Logger.getLogger(ContactDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -171,7 +173,7 @@ public class ContactDAO {
                 "values ('Bruce wyne','batman','XYZ batcave','987654210','627828','0115554448','batman@gmali.com','1976/02/03','batlog.com','super hero')";
         try {
             con=DriverManager.getConnection
-                        ("jdbc:mysql://localhost/?user=gehad&password=2801");
+                        ("jdbc:mysql://localhost/?user="+username+"&password="+passwd);
             //here sonoo is database name, root is username and password
             stmt=con.createStatement();
             stmt.executeUpdate(DB_query);
@@ -186,11 +188,5 @@ public class ContactDAO {
     }
     
 
-
- /*      public static void main(String[] args) {
-           ContactDAO c=new ContactDAO();
-           c.create_DB();
-     
-    }*/
  
 }
